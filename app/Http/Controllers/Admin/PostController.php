@@ -62,7 +62,9 @@ class PostController extends Controller
 
         $slug = Str::of($newPost->title)->slug('-');
         $count = 1;
-
+        
+        //prendi il primo post il cui slug è uguale a $slug
+        //se è presente allora genero un nuovo slug aggiungendo -$count
         while(Post::where("slug", $slug)->first() ) {
             $slug = Str::of($newPost->title)->slug('-') . "-{$count}";
             $count++;
