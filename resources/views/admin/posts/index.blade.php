@@ -17,6 +17,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Title</th>
                                 <th scope="col">Slug</th>
+                                <th scope="col">Categoria</th>
                                 <th scope="col">Stato</th>
                                 <th scope="col">Azione</th>
                                 <th scope="col">Azione</th>
@@ -29,6 +30,13 @@
                                     <th >{{$post->id}}</th>
                                     <td>{{$post->title}}</td>
                                     <td>{{$post->slug}}</td>
+                                    <td class="text-center">
+                                        @if ($post->category)
+                                            <span class="badge badge-success">{{$post->category->name}}</span>
+                                        @else
+                                        <span class="badge badge-secondary">nessuna</span>
+                                        @endif
+                                    </td>
                                     <td class="text-center">
                                         @if ($post->published)
                                             <span class="badge badge-success">pubblicato</span>

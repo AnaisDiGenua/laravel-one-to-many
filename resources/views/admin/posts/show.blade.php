@@ -16,6 +16,9 @@
                         @else
                             <span class="badge badge-secondary">bozza</span>
                         @endif
+                        @if ($post->category)
+                        <span class="badge badge-info">{{$post->category->name}}</span>
+                        @endif
                     </div>
                     {{$post->content}}
                     <div class="mt-5 d-flex">
