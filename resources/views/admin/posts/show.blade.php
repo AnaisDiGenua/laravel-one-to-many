@@ -21,6 +21,11 @@
                         @endif
                     </div>
                     {{$post->content}}
+                    <div class="mt-3">
+                        @if ($post->image)
+                            <img src="{{asset("storage/{$post->image}")}}" alt="{{$post->title}}" width="300">
+                        @endif
+                    </div>
                     <div class="mt-5 d-flex">
                         {{-- bottone modifica --}}
                         <a href="{{route("posts.edit", $post->id)}}"><button type="button" class="btn btn-warning mr-2">modifica</button></a>

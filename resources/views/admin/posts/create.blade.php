@@ -10,7 +10,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form action="{{route("posts.store")}}" method="POST">
+                    <form action="{{route("posts.store")}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="title">Titolo</label>
@@ -45,6 +45,24 @@
                             @error('published')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
+                        </div>
+                        <div class="form-group mb-3">
+                            <img id="uploadPreview" src="https://via.placeholder.com/300x200" width="100">
+                            <label for="image">Aggiungi immagine</label>
+                            <input type="file" id="image" name="image">
+                            {{-- script per la preview dell'immagine --}}
+                            <script type="text/javascript">
+
+                                function PreviewImage() {
+                                    var oFReader = new FileReader();
+                                    oFReader.readAsDataURL(document.getElementById("image").files[0]);
+                            
+                                    oFReader.onload = function (oFREvent) {
+                                        document.getElementById("uploadPreview").src = oFREvent.target.result;
+                                    };
+                                };
+                            
+                            </script> 
                         </div>
                         {{-- bottone crea --}}
                         <button type="submit" class="btn btn-primary">crea</button>
