@@ -23,14 +23,16 @@
                             <button type="submit" class="btn btn-danger">elimina</button>
                         </form>
                     </div>
-                    <div class="mt-5">
-                        Post associati: 
-                        <ul>
-                            @foreach ($category->posts as $post)
-                                <li>{{$post->title}}</li>
-                            @endforeach
-                        </ul>
-                    </div>
+                    @if (count($category->posts) > 0 )
+                        <div class="mt-5">
+                            Post associati: 
+                            <ul>
+                                @foreach ($category->posts as $post)
+                                    <li>{{$post->title}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

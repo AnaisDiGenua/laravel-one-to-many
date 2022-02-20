@@ -32,7 +32,7 @@
                                     <td>{{$post->slug}}</td>
                                     <td class="text-center">
                                         @if ($post->category)
-                                            <span class="badge badge-success">{{$post->category->name}}</span>
+                                            <span class="badge badge-info">{{$post->category->name}}</span>
                                         @else
                                         <span class="badge badge-secondary">nessuna</span>
                                         @endif
