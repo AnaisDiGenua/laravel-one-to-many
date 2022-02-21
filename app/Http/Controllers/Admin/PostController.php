@@ -61,10 +61,12 @@ class PostController extends Controller
         $newPost = new Post();
         $newPost->title = $data["title"];
         $newPost->content = $data["content"];
-         // if (isset($data["published"]) ) {
-        //     $newPost->published = true;
-        // }
-        $newPost->published = isset($data["published"]);
+
+        if (isset($data["published"]) ) {
+            $newPost->published = true;
+        }
+        // $newPost->published = isset($data["published"]);
+
         $newPost->category_id = $data["category_id"];
 
         $slug = Str::of($newPost->title)->slug('-');
@@ -144,12 +146,14 @@ class PostController extends Controller
             }
         }
         $post->content = $data["content"];
-        // if (isset($data["published"]) ) {
-        //     $post->published = true;
-        // } else {
-        //     $post->published = false;
-        // }
-        $post->published = isset($data["published"]);
+        
+        if (isset($data["published"]) ) {
+            $post->published = true;
+        } else {
+            $post->published = false;
+        }
+        // $post->published = isset($data["published"]);
+
         $post->category_id = $data["category_id"];
 
         //salvo l'immagine se è presente e cancello la vecchia immagine

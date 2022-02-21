@@ -41,8 +41,8 @@
                             @enderror
                         </div>
                         <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input @error('published') is-invalid @enderror" id="title" name="title" placeholder="Inserisci un titolo" {{old("published", $post->published) ? "checked" : ""}}>
-                            <label class="form-check-label" for="title">Pubblica</label> 
+                            <input type="checkbox" class="form-check-input @error('published') is-invalid @enderror" id="published" name="published" {{old("published", $post->published) ? "checked" : ""}}>
+                            <label class="form-check-label" for="published">Pubblica</label> 
                             @error('published')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
